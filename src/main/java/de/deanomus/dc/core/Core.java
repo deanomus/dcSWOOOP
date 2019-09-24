@@ -1,9 +1,6 @@
 package de.deanomus.dc.core;
 
-import de.deanomus.dc.cmd.CMD_BROADCAST;
-import de.deanomus.dc.cmd.CMD_CLEAR;
-import de.deanomus.dc.cmd.CMD_Ping;
-import de.deanomus.dc.cmd.CMD_SAY;
+import de.deanomus.dc.cmd.*;
 import de.deanomus.dc.listener.*;
 import de.deanomus.dc.storage.Data;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -53,6 +50,7 @@ public class Core {
         cmdHandler.commands.put("say", new CMD_SAY());
         cmdHandler.commands.put("broadcast", new CMD_BROADCAST());
         cmdHandler.commands.put("clear", new CMD_CLEAR());
+        cmdHandler.commands.put("stop", new CMD_STOP());
 
 
 
@@ -67,42 +65,6 @@ public class Core {
 
 
 
-    public static void cmd() {
-
-
-        new Thread(() -> {
-            String line = "";
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-            try {
-                while((line = reader.readLine()) != null) {
-
-                    if(line.equalsIgnoreCase("stop")) {
-                        if(shardMan != null) {
-                            shardMan.setStatus(OnlineStatus.OFFLINE);
-
-                            RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
-                            long uptime = rb.getUptime();
-                            Data.log("" +
-                                    "Stats (diese Session):\n" +
-                                    "- Uptime: " + uptime / 1000 / 60 + " Minuten\n" +
-                                    "- Empfangende Nachrichten: " + AmountGetMessages +
-                                    "\n- Gesendete Nachrichten: " + AmountSendMessages
-                                    , Color.YELLOW);
-                            Data.botUP = false;
-                            Data.log("Der Bot wurde erfolgreich heruntergefahren! (Console)", Color.GREEN);
-                            shardMan.shutdown();
-                        }
-                    } else System.out.print("Use 'stop' to stop the discord bot");
-
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }).start();
-
-    }
 
 
 }

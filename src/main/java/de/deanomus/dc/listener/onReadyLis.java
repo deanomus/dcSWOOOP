@@ -27,7 +27,6 @@ public class onReadyLis extends ListenerAdapter {
         StatsUpdate.update(e.getJDA());
 
 
-        Core.cmd();
 
 
     }
