@@ -1,7 +1,7 @@
 package de.deanomus.dc.cmd;
 
 import de.deanomus.dc.storage.Data;
-import de.deanomus.dc.storage.Embed;
+import de.deanomus.dc.util.Embed;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

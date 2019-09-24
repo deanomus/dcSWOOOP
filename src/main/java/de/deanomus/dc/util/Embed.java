@@ -1,4 +1,4 @@
-package de.deanomus.dc.storage;
+package de.deanomus.dc.util;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 
