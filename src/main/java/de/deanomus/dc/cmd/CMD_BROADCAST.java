@@ -1,8 +1,10 @@
 package de.deanomus.dc.cmd;
 
+import de.deanomus.dc.core.Core;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
 import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -35,9 +37,10 @@ public class CMD_BROADCAST implements Command {
                 if(args.length > 0) {
                     int channels = 0;
                     String sendedTo = "";
+                    String sendedToFooter = "";
 
 
-                    event.getChannel().sendMessage("Bitte warte kurz.... : " + Data.BroadcastKey).queue();
+                    event.getChannel().sendMessage("Wir bereiten einen Broadcast vor, kurz Geduld bitte. Danke! " + Data.BroadcastKey).queue();
 
                     while(!updated) {
                         try {
@@ -52,20 +55,29 @@ public class CMD_BROADCAST implements Command {
                     Message msg = broadcastMSG;
                     msg.editMessage("Deine Nachricht wird gesendet...").queue();
 
-
+                    Core.shardMan.setActivity(Activity.playing("sending broadcast"));
+                    Core.shardMan.setStatus(OnlineStatus.DO_NOT_DISTURB);
                     for(Guild g : event.getJDA().getGuilds()) {
-                        sendedTo += "\n\n" + g.getName() + " (" + g.getId() + "):\n";
+                        if(sendedTo.length() < 2000) {
+                            sendedTo += "\n\n" + g.getName() + " (" + g.getId() + "):\n";
+                        } else sendedToFooter += "\n\n" + g.getName() + " (" + g.getId() + "):\n";
                         for(GuildChannel c : g.getChannels()) {
                             if(c.getType().equals(ChannelType.TEXT)) {
                                 channels++;
-                                sendedTo += c.getName() + ", ";
+
+
+                                if(sendedTo.length() < 2000) {
+                                    sendedTo += c.getName() + ", ";
+                                } else sendedToFooter += c.getName() + ", ";
                         event.getJDA().getGuildById(g.getId()).getTextChannelById(c.getId()).sendMessage(String.join(" ", args)).queue();
                             }
                         }
                     }
                     msg.editMessage("Deine Nachricht wurde an " + channels + " Channel gesendet.").queue();
-                    msg.editMessage(Embed.success.setDescription(sendedTo).build()).queue();
-//                    event.getChannel().sendMessage("Dein Rundruf wurde abgesendet! (" + channels + " Channel)" + sendedTo).queue();
+                    msg.editMessage(Embed.success.setDescription(sendedTo).setFooter(sendedToFooter).build()).queue();
+                    Embed.success.setFooter("");
+                    Core.shardMan.setActivity(Activity.watching("mySWOOOP"));
+                    Core.shardMan.setStatus(OnlineStatus.ONLINE);
                 } else {
                     event.getChannel().sendMessage(Data.DC_CMD_PREFIX + "broadcast <Nachricht>").queue();
                 }
