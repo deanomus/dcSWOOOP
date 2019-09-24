@@ -1,6 +1,7 @@
 package de.deanomus.dc.core;
 
 import de.deanomus.dc.cmd.CMD_BROADCAST;
+import de.deanomus.dc.cmd.CMD_CLEAR;
 import de.deanomus.dc.cmd.CMD_Ping;
 import de.deanomus.dc.cmd.CMD_SAY;
 import de.deanomus.dc.listener.*;
@@ -51,6 +52,7 @@ public class Core {
         cmdHandler.commands.put("ping", new CMD_Ping());
         cmdHandler.commands.put("say", new CMD_SAY());
         cmdHandler.commands.put("broadcast", new CMD_BROADCAST());
+        cmdHandler.commands.put("clear", new CMD_CLEAR());
 
 
 
