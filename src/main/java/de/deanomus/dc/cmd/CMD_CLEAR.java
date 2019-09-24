@@ -18,6 +18,8 @@ public class CMD_CLEAR implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
+        //Legt die minimalen und maximalen Werte an, die mit einem Command gelöscht werden können
+        //Achtung! Discord API Limit beträgt max. 100 deletes, max-Wert wird nochmal um 1 addiert
         int minDelete = 2;
         int maxDelete = 99;
 
@@ -45,6 +47,7 @@ public class CMD_CLEAR implements Command {
                 List<Message> msgs;
 
                 msgs = history.retrievePast(numb+1).complete();
+                numb = msgs.size();
                 event.getTextChannel().deleteMessages(msgs).queue();
 
                 event.getChannel().sendMessage(Embed.success.setDescription(event.getAuthor().getAsTag() + ", Erfolgreich " + numb + " Nachrichten gelöscht!").build()).queue();
