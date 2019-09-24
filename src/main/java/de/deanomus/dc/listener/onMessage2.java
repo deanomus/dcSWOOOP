@@ -1,10 +1,13 @@
 package de.deanomus.dc.listener;
 
+import de.deanomus.dc.cmd.CMD_BROADCAST;
 import de.deanomus.dc.core.Core;
 import de.deanomus.dc.core.StatsUpdate;
 import de.deanomus.dc.storage.Data;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+import java.awt.*;
 
 
 public class onMessage2 extends ListenerAdapter {
@@ -21,6 +24,10 @@ public class onMessage2 extends ListenerAdapter {
             if(e.getMessage().getContentDisplay().contains(Data.StatsKey)) {
                 StatsUpdate.StatsMessages.add(e.getMessageId());
                 Data.stats.put(e.getMessageId(), e.getChannel().getId());
+            } else if(e.getMessage().getContentDisplay().contains(Data.BroadcastKey)) {
+                CMD_BROADCAST.broadcastMSG = e.getMessage();
+                CMD_BROADCAST.updated = true;
+                Data.log("Broadcast Nachricht empfangen!", Color.GREEN);
             }
         } else {
             Core.AmountGetMessages += 1;
