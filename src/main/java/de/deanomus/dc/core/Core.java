@@ -89,6 +89,7 @@ public class Core {
                                     "- Empfangende Nachrichten: " + AmountGetMessages +
                                     "\n- Gesendete Nachrichten: " + AmountSendMessages
                                     , Color.YELLOW);
+                            Data.botUP = false;
                             Data.log("Der Bot wurde erfolgreich heruntergefahren! (Console)", Color.GREEN);
                             shardMan.shutdown();
                         }

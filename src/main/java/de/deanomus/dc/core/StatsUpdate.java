@@ -24,7 +24,7 @@ public class StatsUpdate {
             public void run()
             {
                 Color color = Color.YELLOW;
-                while(true) {
+                while(Data.botUP) {
 
 
 

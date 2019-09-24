@@ -15,6 +15,7 @@ public class Data {
     public static HashMap<String, String> messages = new HashMap<String, String>();
     public static HashMap<String, String> stats = new HashMap<String, String>();
     public static ArrayList<String> logs = new ArrayList<String>();
+    public static boolean botUP = true;
 
     public static final String
             DC_TOKEN = "NjIxNjMyMjgyNTE5OTI4ODMz.XXoKrg._t1OBUCBFaTBoPD-AwQys-N7lGY",
