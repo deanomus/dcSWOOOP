@@ -1,6 +1,12 @@
 package de.deanomus.dc.core;
 
-import de.deanomus.dc.cmd.*;
+import de.deanomus.dc.cmd.administration.CMD_STOP;
+import de.deanomus.dc.cmd.moderation.CMD_BROADCAST;
+import de.deanomus.dc.cmd.moderation.CMD_CHANGENAME;
+import de.deanomus.dc.cmd.moderation.CMD_CLEAR;
+import de.deanomus.dc.cmd.moderation.CMD_SAY;
+import de.deanomus.dc.cmd.user.CMD_INFO;
+import de.deanomus.dc.cmd.user.CMD_Ping;
 import de.deanomus.dc.listener.*;
 import de.deanomus.dc.storage.Data;
 import net.dv8tion.jda.api.OnlineStatus;

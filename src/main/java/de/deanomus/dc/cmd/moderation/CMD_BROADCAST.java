@@ -1,5 +1,6 @@
-package de.deanomus.dc.cmd;
+package de.deanomus.dc.cmd.moderation;
 
+import de.deanomus.dc.cmd.Command;
 import de.deanomus.dc.core.Core;
 import de.deanomus.dc.listener.onMessage;
 import de.deanomus.dc.storage.Data;

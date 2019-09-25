@@ -1,5 +1,6 @@
-package de.deanomus.dc.cmd;
+package de.deanomus.dc.cmd.moderation;
 
+import de.deanomus.dc.cmd.Command;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
 import de.deanomus.dc.util.Perms;

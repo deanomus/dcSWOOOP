@@ -1,5 +1,6 @@
-package de.deanomus.dc.cmd;
+package de.deanomus.dc.cmd.user;
 
+import de.deanomus.dc.cmd.Command;
 import de.deanomus.dc.core.Core;
 import de.deanomus.dc.util.Embed;
 import net.dv8tion.jda.api.entities.*;

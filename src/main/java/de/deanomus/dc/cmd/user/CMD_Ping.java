@@ -1,9 +1,10 @@
-package de.deanomus.dc.cmd;
+package de.deanomus.dc.cmd.user;
 
+import de.deanomus.dc.cmd.Command;
 import de.deanomus.dc.listener.onMessage;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class CMD_Ping implements  Command {
+public class CMD_Ping implements Command {
 
 
     @Override

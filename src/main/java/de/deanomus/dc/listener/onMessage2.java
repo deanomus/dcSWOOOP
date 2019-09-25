@@ -1,6 +1,6 @@
 package de.deanomus.dc.listener;
 
-import de.deanomus.dc.cmd.CMD_BROADCAST;
+import de.deanomus.dc.cmd.moderation.CMD_BROADCAST;
 import de.deanomus.dc.core.Core;
 import de.deanomus.dc.core.StatsUpdate;
 import de.deanomus.dc.storage.Data;
