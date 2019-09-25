@@ -43,6 +43,7 @@ public class Core {
         builder.addEventListeners(new onMessage2());
         builder.addEventListeners(new onReadyLis());
         builder.addEventListeners(new cmdListener());
+        builder.addEventListeners(new TextChannelCreate());
 
 
         //Add Commands
