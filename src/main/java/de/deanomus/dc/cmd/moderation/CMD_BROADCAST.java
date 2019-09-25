@@ -6,6 +6,7 @@ import de.deanomus.dc.listener.onMessage;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
 import de.deanomus.dc.util.Perms;
+import de.deanomus.dc.util.check;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -77,7 +78,7 @@ public class CMD_BROADCAST implements Command {
                                 if(sendedTo.length() < 2000) {
                                     sendedTo += c.getName() + ", ";
                                 } else sendedToFooter += c.getName() + ", ";
-                        event.getJDA().getGuildById(g.getId()).getTextChannelById(c.getId()).sendMessage(String.join(" ", args)).queue();
+                        if(!check.isLog(c)) event.getJDA().getGuildById(g.getId()).getTextChannelById(c.getId()).sendMessage(String.join(" ", args)).queue();
                             }
                         }
                     }
