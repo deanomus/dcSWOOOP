@@ -51,7 +51,7 @@ public class Core {
         cmdHandler.commands.put("broadcast", new CMD_BROADCAST());
         cmdHandler.commands.put("clear", new CMD_CLEAR());
         cmdHandler.commands.put("stop", new CMD_STOP());
-
+        cmdHandler.commands.put("changename", new CMD_CHANGENAME());
 
 
         try {
