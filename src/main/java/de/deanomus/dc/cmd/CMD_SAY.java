@@ -1,6 +1,8 @@
 package de.deanomus.dc.cmd;
 
 import de.deanomus.dc.storage.Data;
+import de.deanomus.dc.util.Embed;
+import de.deanomus.dc.util.Perms;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
@@ -8,7 +10,15 @@ import java.util.Arrays;
 public class CMD_SAY implements Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
-        return false;
+
+
+        int p = Perms.check(event);
+
+        if(p == 3 || p == 2) return false;
+
+
+        event.getChannel().sendMessage(Embed.warning.setDescription(":warning: Oops, deine Rechte sind nicht ausreichend für diesen Befehl :warning:").build()).queue();
+        return true;
     }
 
     @Override

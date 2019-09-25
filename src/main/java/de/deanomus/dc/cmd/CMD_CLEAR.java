@@ -2,6 +2,7 @@ package de.deanomus.dc.cmd;
 
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
+import de.deanomus.dc.util.Perms;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -13,7 +14,13 @@ public class CMD_CLEAR implements Command {
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
-        return false;
+        int p = Perms.check(event);
+
+        if(p == 3 || p == 2) return false;
+
+
+        event.getChannel().sendMessage(Embed.warning.setDescription(":warning: Oops, deine Rechte sind nicht ausreichend für diesen Befehl :warning:").build()).queue();
+        return true;
     }
 
     @Override

@@ -1,8 +1,10 @@
 package de.deanomus.dc.cmd;
 
 import de.deanomus.dc.core.Core;
+import de.deanomus.dc.listener.onMessage;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
+import de.deanomus.dc.util.Perms;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.*;
@@ -20,7 +22,17 @@ public class CMD_BROADCAST implements Command {
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
-        return false;
+        int p = Perms.check(event);
+
+        if(p == 3 || p == 2) {
+            if(onMessage.checkMessage(event)) return false;
+            return true;
+        } else {
+
+
+            event.getChannel().sendMessage(Embed.warning.setDescription(":warning: Oops, deine Rechte sind nicht ausreichend für diesen Befehl :warning:").build()).queue();
+            return true;
+        }
     }
 
     @Override
