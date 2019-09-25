@@ -61,7 +61,6 @@ public class CMD_BROADCAST implements Command {
                             e.printStackTrace();
                         }
                     }
-                    Data.log("Es geht weiter...", Color.GREEN);
                     updated = false;
 
                     Message msg = broadcastMSG;

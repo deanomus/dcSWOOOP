@@ -27,7 +27,6 @@ public class onMessage2 extends ListenerAdapter {
             } else if(e.getMessage().getContentDisplay().contains(Data.BroadcastKey)) {
                 CMD_BROADCAST.broadcastMSG = e.getMessage();
                 CMD_BROADCAST.updated = true;
-                Data.log("Broadcast Nachricht empfangen!", Color.GREEN);
             }
         } else {
             Core.AmountGetMessages += 1;
