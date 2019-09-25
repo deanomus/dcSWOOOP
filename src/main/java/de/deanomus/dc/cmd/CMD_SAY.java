@@ -5,7 +5,6 @@ import de.deanomus.dc.util.Embed;
 import de.deanomus.dc.util.Perms;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.util.Arrays;
 
 public class CMD_SAY implements Command {
     @Override

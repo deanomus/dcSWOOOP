@@ -1,6 +1,5 @@
 package de.deanomus.dc.cmd;
 
-import de.deanomus.dc.core.Core;
 import de.deanomus.dc.listener.onMessage;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;

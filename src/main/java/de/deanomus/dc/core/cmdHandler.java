@@ -1,13 +1,7 @@
 package de.deanomus.dc.core;
 
 import de.deanomus.dc.cmd.Command;
-import de.deanomus.dc.listener.onMessage;
-import de.deanomus.dc.storage.Data;
-import net.dv8tion.jda.api.entities.ChannelType;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.awt.*;
 import java.util.HashMap;
 
 public class cmdHandler {

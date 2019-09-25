@@ -5,14 +5,10 @@ import de.deanomus.dc.listener.onMessage;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
 import de.deanomus.dc.util.Perms;
-import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.awt.*;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class CMD_BROADCAST implements Command {

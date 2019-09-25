@@ -1,6 +1,5 @@
 package de.deanomus.dc.listener;
 
-import de.deanomus.dc.core.Core;
 import de.deanomus.dc.core.StatsUpdate;
 import de.deanomus.dc.storage.Data;
 import net.dv8tion.jda.api.events.ReadyEvent;
