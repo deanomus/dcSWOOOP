@@ -46,7 +46,7 @@ public class Core {
         cmdHandler.commands.put("clear", new CMD_CLEAR());
         cmdHandler.commands.put("stop", new CMD_STOP());
         cmdHandler.commands.put("changename", new CMD_CHANGENAME());
-
+        cmdHandler.commands.put("info", new CMD_INFO());
 
         try {
             shardMan = builder.build();
