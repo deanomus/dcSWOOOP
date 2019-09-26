@@ -1,10 +1,7 @@
 package de.deanomus.dc.core;
 
 import de.deanomus.dc.cmd.administration.CMD_STOP;
-import de.deanomus.dc.cmd.moderation.CMD_BROADCAST;
-import de.deanomus.dc.cmd.moderation.CMD_CHANGENAME;
-import de.deanomus.dc.cmd.moderation.CMD_CLEAR;
-import de.deanomus.dc.cmd.moderation.CMD_SAY;
+import de.deanomus.dc.cmd.moderation.*;
 import de.deanomus.dc.cmd.user.CMD_INFO;
 import de.deanomus.dc.cmd.user.CMD_Ping;
 import de.deanomus.dc.listener.*;
@@ -55,6 +52,7 @@ public class Core {
         cmdHandler.commands.put("stop", new CMD_STOP());
         cmdHandler.commands.put("changename", new CMD_CHANGENAME());
         cmdHandler.commands.put("info", new CMD_INFO());
+        cmdHandler.commands.put("mute", new CMD_MUTE());
 
         try {
             shardMan = builder.build();
