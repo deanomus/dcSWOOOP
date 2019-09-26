@@ -53,6 +53,8 @@ public class Core {
         cmdHandler.commands.put("changename", new CMD_CHANGENAME());
         cmdHandler.commands.put("info", new CMD_INFO());
         cmdHandler.commands.put("mute", new CMD_MUTE());
+        cmdHandler.commands.put("ban", new CMD_BAN());
+        cmdHandler.commands.put("kick", new CMD_KICK());
 
         try {
             shardMan = builder.build();

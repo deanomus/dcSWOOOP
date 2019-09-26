@@ -11,6 +11,9 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public class CMD_MUTE implements Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
+        if(!onMessage.checkMessage(event)) return true;
+        event.getChannel().sendMessage(Embed.warning.setDescription(":warning: In development").build()).queue();
+        if(true) return true;
 
 
         if(!event.getGuild().getId().equals(Data.DC_GUILD)) {
