@@ -32,13 +32,21 @@ public class StatsUpdate {
                     long uptime = rb.getUptime();
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                     Date date = new Date();
+
+                    String up = "- Uptime: ";
+                    if((uptime / 1000) > 60) {
+                        up += uptime / 1000 / 60 + " Minute";
+                        if(!((uptime / 1000 / 60) == 1)) up+= "n";
+                    } else up += uptime / 1000 + " Sekunden";
+
+
                     for (String mesID : StatsMessages) {
                         jda.getTextChannelById(Data.stats.get(mesID)).editMessageById(mesID, "Du willst Content? Ich gebe dir Content! Hier!").queue();
                         jda.getTextChannelById(Data.stats.get(mesID)).editMessageById(mesID, new EmbedBuilder()
                                 .setTitle("Statistiken (Diese Session)")
                                 .setColor(color)
                                 .setDescription("" +
-                                        "- Uptime: " + uptime / 1000 / 60 + " Minuten" +
+                                        up +
                                         "\n- Empfangende Nachrichten: " + Core.AmountGetMessages +
                                         "\n- Gesendete Nachrichten: " + Core.AmountSendMessages)
                                 .setFooter("Last Updated: " + formatter.format(date))
