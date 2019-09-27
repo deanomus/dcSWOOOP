@@ -1,11 +1,11 @@
-##SWOOOP Discord Bot
+# SWOOOP Discord Bot
 
-###Important /!\
+### Important /!\
 Before you use the bot, you have to adjust the Token and id's to yours, can be found under Data
 (/mySWOOOP_DC/src/main/java/de/deanomus/dc/storage/Data.java)
 
 
-####commands
+#### commands
 
  - Administration
     - stop
@@ -20,7 +20,7 @@ Before you use the bot, you have to adjust the Token and id's to yours, can be f
     - Ping
     
     
-####Todo-list:
+#### Todo-list:
 
 - [x] Send message to new created channels
 - [x] Info Command (About user, bot & guild)
