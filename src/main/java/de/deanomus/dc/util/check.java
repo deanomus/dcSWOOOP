@@ -6,8 +6,6 @@ import net.dv8tion.jda.api.entities.GuildChannel;
 public class check {
 
 
-
-
     public static boolean isLog(GuildChannel channel) {
 
 

@@ -28,7 +28,7 @@ public class CMD_CHANGENAME implements Command {
         if(args.length == 1) {
             int maxLength = 32;
 
-            if(args[0].length() < maxLength) {
+            if(args[0].length() <= maxLength) {
                 event.getGuild().getMember(event.getJDA().getUserById(event.getJDA().getSelfUser().getId())).modifyNickname(args[0]).queue();
                 event.getChannel().sendMessage(Embed.success.setDescription("Ich habe meinen Namen zu " + args[0] + " geändert.").build()).queue();
             } else event.getChannel().sendMessage(Embed.warning.setDescription(":warning: Mein Neuer Name darf nicht länger als " + maxLength + " Zeichen sein").build()).queue();

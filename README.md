@@ -5,7 +5,7 @@ Before you use the bot, you have to adjust the Token and id's to yours, can be f
 (/mySWOOOP_DC/src/main/java/de/deanomus/dc/storage/Data.java)
 
 
-#### commands
+#### commands:
 
  - Administration
     - stop

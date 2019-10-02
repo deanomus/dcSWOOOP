@@ -13,8 +13,8 @@ public class onReadyLis extends ListenerAdapter {
     public void onReady (ReadyEvent e) {
 
         //Add Log-Channels to ArrayList logs
-        Data.logs.add(Data.DC_BOT_LOG);
-        Data.logs.add(Data.DC_USER_LOG);
+//        Data.logs.add(Data.DC_BOT_LOG);
+//        Data.logs.add(Data.DC_USER_LOG);
 
         Data.log("Der Bot wurde erfolgreich gestartet !", Color.GREEN);
 

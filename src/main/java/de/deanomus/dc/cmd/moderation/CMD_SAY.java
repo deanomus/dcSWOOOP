@@ -4,6 +4,7 @@ import de.deanomus.dc.cmd.Command;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
 import de.deanomus.dc.util.Perms;
+import de.deanomus.dc.util.check;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 
@@ -24,6 +25,7 @@ public class CMD_SAY implements Command {
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
         if(args.length > 0) {
+            if(!event.getAuthor().getId().equals(event.getJDA().getSelfUser().getId())) event.getMessage().delete().queue();
             event.getChannel().sendMessage(String.join(" ", args)).queue();
         } else {
             event.getChannel().sendMessage(Data.DC_CMD_PREFIX + "say <Nachricht>").queue();

@@ -42,6 +42,7 @@ public class Core {
         builder.addEventListeners(new cmdListener());
         builder.addEventListeners(new TextChannelCreate());
         builder.addEventListeners(new TextChannelDelete());
+        builder.addEventListeners(new onReaction());
 
 
         //Add Commands

@@ -1,6 +1,7 @@
 package de.deanomus.dc.listener;
 
 import de.deanomus.dc.storage.Data;
+import de.deanomus.dc.util.check;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -17,8 +18,7 @@ public class onMessage {
         //Prüfe ob Nachricht von Bot kommt
         if(e.getAuthor().getId().equals(e.getJDA().getSelfUser().getId())) return false;
         //Prüfe ob Nachricht in einem Log Channel gesendet wurde
-        if(Data.logs.contains(e.getChannel().getId())) {
-
+        if(check.isLog(e.getGuild().getGuildChannelById(e.getChannel().getId()))) {
 
 
             if(Deleted.containsKey(e.getAuthor().getId())) {
@@ -29,12 +29,14 @@ public class onMessage {
             }
             Deleted.put(e.getAuthor().getId(), e.getChannel().getId());
 
-            e.getChannel().sendMessage(new EmbedBuilder()
-                    .setTitle("Nachricht entfernt!")
-                    .setColor(Color.RED)
-                    .setDescription(e.getAuthor().getAsMention() + ", im " + e.getChannel().getName() + " darf nur ich schreiben!")
-                    .build()
-            ).queue();
+            Data.notAllowedUser = e.getAuthor().getId();
+            e.getChannel().sendMessage("Laden... " + Data.notAllowedToSendMessageKey + ": Lade").queue();
+//            e.getChannel().sendMessage(new EmbedBuilder()
+//                    .setTitle("Nachricht entfernt!")
+//                    .setColor(Color.RED)
+//                    .setDescription(e.getAuthor().getAsMention() + ", im " + e.getChannel().getName() + " darf nur ich schreiben!")
+//                    .build()
+//            ).queue();
             e.getMessage().delete().queue();
             return false;
         }

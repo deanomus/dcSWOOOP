@@ -34,6 +34,14 @@ public class StatsUpdate {
                     Date date = new Date();
 
                     String up = "- Uptime: ";
+
+                    if(uptime / 1000 / 60 > 2) {
+                        up+= (uptime / 1000 / 60 / 60) + "Stunde";
+                        if(!((uptime / 1000 / 60 / 60) == 1)) up+= "n";
+                        up+= " + ";
+                    }
+
+
                     if((uptime / 1000) > 60) {
                         up += uptime / 1000 / 60 + " Minute";
                         if(!((uptime / 1000 / 60) == 1)) up+= "n";

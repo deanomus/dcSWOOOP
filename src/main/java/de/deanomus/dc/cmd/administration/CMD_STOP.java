@@ -3,10 +3,12 @@ package de.deanomus.dc.cmd.administration;
 import de.deanomus.dc.cmd.Command;
 import de.deanomus.dc.core.Core;
 import de.deanomus.dc.listener.onMessage;
+import de.deanomus.dc.listener.onReaction;
 import de.deanomus.dc.storage.Data;
 import de.deanomus.dc.util.Embed;
 import de.deanomus.dc.util.Perms;
 import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
@@ -29,6 +31,11 @@ public class CMD_STOP implements Command {
     public void action(String[] args, MessageReceivedEvent event) {
         if(Core.shardMan != null) {
             event.getChannel().sendMessage(Embed.warning.setDescription("Bot wird heruntergefahren...").build()).queue();
+
+            for(Message msg : Data.delOnStop) {
+                msg.delete().queue();
+            }
+
             Core.shardMan.setStatus(OnlineStatus.OFFLINE);
             Data.botUP = false;
             Data.log("Der Bot wurde erfolgreich heruntergefahren! (" + event.getAuthor().getName() + ")", Color.GREEN);
