@@ -19,7 +19,7 @@ public class Data {
     public static boolean botUP = true;
 
     public static final String
-            DC_TOKEN = "NjIxNjMyMjgyNTE5OTI4ODMz.XXoKrg._t1OBUCBFaTBoPD-AwQys-N7lGY",
+            DC_TOKEN = "NjIxNjMyMjgyNTE5OTI4ODMz.XXoKLQ.d2Y" + "4qpEVwYZuxhKE-cXasv02qkU",
             DC_GUILD = "621633248967131136",
             DC_BOT_LOG = "621640962271215636",
             DC_MOD_LOG = "625973361973133322",
